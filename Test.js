@@ -1,3 +1,6 @@
+const visible = null
+
+
 let some = {
 	visible: true,
 	colorDepth:24,
@@ -10,9 +13,12 @@ let some = {
 	width:1440
 }
 
+let a = 1111111
 
-const home = () =>{
-	return 5
-}
+let non = a
 
-console.table(console)
+a = 22222
+
+some.width = 32423
+
+console.log(non)

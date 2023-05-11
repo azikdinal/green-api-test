@@ -10,4 +10,9 @@ let some = {
 	width:1440
 }
 
-console.log(some)
+
+const home = () =>{
+	return 5
+}
+
+console.table(console)

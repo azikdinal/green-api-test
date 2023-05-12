@@ -1,7 +1,17 @@
+'use strict'
 
 
-some = {
-	"5":'sadas'
+const arrayA = [1,23,'213']
+const arrayB = [1,23,'213']
+
+
+const objA = {
+	city:{
+		first:"New Deli"
+	}
 }
 
-console.log(Error)
+
+
+
+console.dir(objA["city"]["first"])

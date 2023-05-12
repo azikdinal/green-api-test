@@ -1,7 +1,6 @@
 const city = "Moscow"
 const country = "Russia"
 
-
 const objectA = {
 	city,
 	country,
@@ -13,4 +12,10 @@ const objectA = {
 	}
 }
 
-console.log(objectA.func())
+
+
+const objectC = {...objectA}
+
+objectC.objectB.cui = "sadas"
+
+console.log(objectA)

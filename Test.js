@@ -1,7 +1,16 @@
-let a = () =>{
-	console.log('asdasd')
+const city = "Moscow"
+const country = "Russia"
+
+
+const objectA = {
+	city,
+	country,
+	func() {
+		return 3
+	},
+	objectB:{
+		home: "house"
+	}
 }
 
-a = 'sadas'
-
-console.log(a())
+console.log(objectA.func())

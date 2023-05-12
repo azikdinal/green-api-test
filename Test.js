@@ -1,4 +1,5 @@
+'use strict'
 
-f = (b) => 22222	
-
-console.log(f)
+const a = 123
+const b = `${a}`
+console.log(typeof(10 + "10"))

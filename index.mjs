@@ -1,21 +1,8 @@
 'use strict'
 
 
-const obj = {
-	city:"Moscow"
-}
 
-class NumbersArray extends Array{
+const f = a => b => a + b
+const some = 6
 
-
-	sum(){
-		return this.reduce((el, acc) => acc += el, 0)
-	}
-}
-
-const ex = new NumbersArray(1,2,3)
-
-
-const arr = [1,2,3]
-
-console.dir(ex.reduce((el, acc) => acc += el, 0))
+console.log(f)

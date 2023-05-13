@@ -1,17 +1,13 @@
 'use strict'
 
 
-const arrayA = [1,23,'213']
-const arrayB = [1,23,'213']
+const arrayA = [1,2,3]
+const arrayB = []
 
 
-const objA = {
-	city:{
-		first:"New Deli"
-	}
+const {city} = {
+	city: "Moscow",
+	country: "Russia"
 }
 
-
-
-
-console.dir(objA["city"]["first"])
+console.dir(city)

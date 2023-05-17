@@ -1,9 +1,18 @@
 import React from 'react';
+import Chat from "./Chat";
 
 const Chats = () => {
     return (
-        <div>
-            
+        <div className='chats'>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
         </div>
     );
 };

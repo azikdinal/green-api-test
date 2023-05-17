@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+body{
+    background-color: #111b21;
+    overflow: hidden;
+}
+
+.App{
+    padding: 25px;
+}
+
+.window{
+    display: flex;
+
+    margin: 0 auto;
+    height: 663px;
+    width: 1485px;
+    background-color: #2885bf;
+}
+
+.left-bar{
+    background-color: #86a859;
+    width: 30%;
+    height: 100%;
+
+    .left-navbar{
+        display: flex;
+        align-items: center;
+
+        color: aliceblue;
+        background-color: #1d4b56;
+        width: 100%;
+        height: 10%;
+
+        #profile{
+            margin-left: 20px;
+            margin-right: 190px;
+            .svg{
+                width: 40px;
+                height: auto;
+            }
+        }
+        .d{
+            margin-right: 25px;
+        }
+
+        .svg{
+            width: 25px;
+            height: auto;
+        }
+    }
+
+    .chats{
+        background-color: #32263b;
+        width: 100%;
+        height: 90%;
+        
+        
+        .chat{
+            display: flex;
+
+
+            background-color: #573737;
+            width: 100%;
+            height: 10%;
+
+            border: 1px solid;
+
+
+            .image{
+                display:flex;
+                align-items:center;
+
+                margin: 0 20px;
+
+                .img{
+                    border-radius: 50%;
+                }
+            }
+
+            .content{
+                display: flex;
+                flex-direction: column;
+                height: 40px;
+                .fst-line{
+                    display: flex;
+                    justify-content: column;
+                    gap: 80px;
+                }
+            }
+        }
+    }
+}
+
+.right-bar{
+    background-color: #a25555;
+    width: 70%;
+    height: 100%;
+}
+
+

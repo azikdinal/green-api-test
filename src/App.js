@@ -1,13 +1,13 @@
-import LeftBar from "./components/LeftBar";
-import RightBar from "./components/RightBar";
+
+import './style.scss'
+import Window from "./components/Window";
 
 
 function App() {
 
   return (
     <div className="App">
-      <LeftBar/>
-      <RightBar/>
+      <Window/>
     </div>
   );
 }

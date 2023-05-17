@@ -2,7 +2,7 @@ import React from 'react';
 
 const LeftNavbar = () => {
     return (
-        <div className='left-navbar'>
+        <header className='left-navbar'>
             <div className='d profile-img' id='profile'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                      className="svg" viewBox="0 0 16 16">
@@ -43,7 +43,7 @@ const LeftNavbar = () => {
                 </svg></div>
 
 
-        </div>
+        </header>
     );
 };
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageList from "./MessageList";
+import Messages from "./Messages";
 import RightNavbar from "./RightNavbar";
 import TypeBar from "./TypeBar";
 
@@ -7,7 +7,7 @@ const RightBar = () => {
     return (
         <div className="right-bar">
             <RightNavbar/>
-            <MessageList/>
+            <Messages/>
             <TypeBar/>
         </div>
     );

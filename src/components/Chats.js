@@ -13,6 +13,10 @@ const Chats = () => {
             <Chat/>
             <Chat/>
             <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
+            <Chat/>
         </div>
     );
 };

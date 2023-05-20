@@ -1,5 +1,6 @@
 import React from 'react';
 import Chat from "./Chat";
+import counter from "../store/apiStore";
 
 const Chats = () => {
     return (
@@ -8,15 +9,7 @@ const Chats = () => {
             <Chat/>
             <Chat/>
             <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
-            <Chat/>
+
         </div>
     );
 };

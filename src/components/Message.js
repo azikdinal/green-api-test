@@ -11,7 +11,7 @@ const Message = (props) => {
     return (
         <div className='message' style={{justifyContent:props.isUser ? 'flex-end' : 'flex-start'}}>
             <div className='rectangle' style={{backgroundColor: props.isUser ? '#005c4b' : '#202c33'}}>
-                {message}
+                {props.message}
             </div>
         </div>
     );

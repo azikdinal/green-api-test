@@ -1,17 +1,41 @@
 import React, {useState} from 'react';
+import axios from "axios";
+import apiStore from '../store/apiStore'
 
 const TypeBar = () => {
     const [message, setMessage] = useState('')
 
     const handleChange = event => {
         setMessage(event.target.value);
+
     };
 
-    const handleKeyDown = (event) => {
-        if (event.key === 'Enter') {
-            console.log(message);
+    const handleKeyDown = async (event) => {
+        if (event.key === 'Enter')  {
+            fetchPosts()
         }
     };
+
+
+    const host = apiStore.host
+    const id = apiStore.id
+    const token = apiStore.token
+
+
+    const fetchPosts = async () => {
+        try{
+            const response = await axios.post(`https://api.green-api.com/waInstance${id}/SendMessage/${token}`, {
+                "chatId": "79887206320@c.us",
+                "message": message
+            })
+            apiStore.addMessage(message)
+            console.log(response.data)
+        }
+        catch (e){
+            console.log(e, host)
+        }
+
+    }
 
 
     return (

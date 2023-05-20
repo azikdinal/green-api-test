@@ -23,30 +23,6 @@ const Messages = observer(() => {
         }, []);
 
 
-
-        const [isClicked, setIsClicked] = useState(false);
-
-        const handleClick = () => {
-                setIsClicked(true);
-        };
-
-
-        let messageId = 0
-
-
-
-        const recieveMessage = async () =>{
-
-            await axios.get(`https://api.green-api.com/waInstance1101822336/receiveNotification/95247822b8fe41d8b937cd71d959334c6719ee252dae4b4bac`)
-                .then(response => {
-                    messageId = response.data.receiptId
-                })
-                .catch(e => console.log(e))
-        }
-        //
-        // setTimeout(() => recieveMessage(),5000)
-
-
         return (
         <div className='messages' ref={typeBarRef}>
             <Date/>

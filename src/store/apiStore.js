@@ -2,22 +2,29 @@ import {makeAutoObservable} from "mobx";
 import axios from "axios";
 
 class ApiStore {
+    id = 0
+    chatId = "79887206320@c.us"
     messages = []
+    receiptId = 0
     host = 'https://api.green-api.com/'
-    id = 1101822336
+    idInstanse = 1101822336
     token = '95247822b8fe41d8b937cd71d959334c6719ee252dae4b4bac'
     constructor() {
         makeAutoObservable(this)
     }
 
     addMessage(newMessage) {
-        this.messages = [...this.messages, newMessage]
+        this.messages = [...this.messages, {id: this.id + 1, text: newMessage}]
+    }
+
+    setChatId(chatId){
+        this.chatId = chatId + "@c.us"
     }
 
     async sendMessage(message){
         try{
-            const response = await axios.post(`https://api.green-api.com/waInstance1101822336/SendMessage/95247822b8fe41d8b937cd71d959334c6719ee252dae4b4bac`, {
-                "chatId": "79887206320@c.us",
+            await axios.post(`${this.host}waInstance${this.idInstanse}/SendMessage/${this.token}`, {
+                "chatId": this.chatId,
                 "message": message
             })
             this.addMessage(message)
@@ -28,11 +35,18 @@ class ApiStore {
     }
 
     async recieveMessage(){
-        await axios.get(`https://api.green-api.com/waInstance1101822336/receiveNotification/95247822b8fe41d8b937cd71d959334c6719ee252dae4b4bac`)
-            .then(response => {
-                this.addMessage(response.data.body.messageData.extendedTextMessageData.text)
-            })
-            .catch(e => console.log(e))
+            await axios.get(`${this.host}waInstance${this.idInstanse}/receiveNotification/${this.token}`)
+                .then(response => {
+                    this.addMessage(response.data.body.messageData.extendedTextMessageData.text)
+                    this.receiptId = response.data.receiptId
+                    console.log(response)
+                })
+                .catch(e => console.log(e))
+            await axios.delete(`${this.host}waInstance${this.idInstanse}/deleteNotification/${this.token}/${this.receiptId}`)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(e => console.log(e))
     }
 
 }

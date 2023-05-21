@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import axios from "axios";
 import apiStore from '../store/apiStore'
+import axios from "axios";
 
 const TypeBar = () => {
     const [message, setMessage] = useState('')
@@ -11,12 +11,25 @@ const TypeBar = () => {
 
     // Send message func
     const handleKeyDown = async (event) => {
-        if (event.key === 'Enter')  {
+        if (event.key === 'Enter') {
             await apiStore.sendMessage(message)
         }
     };
 
-
+    // const deleteNotif = async () =>{
+    //     for(let i = 70; i < 200; i++){
+    //         await axios.get(`${apiStore.host}waInstance${apiStore.idInstanse}/receiveNotification/${apiStore.token}`)
+    //             .then(response => {
+    //                 console.log(response)
+    //             })
+    //             .catch(e => console.log(e))
+    //         await axios.delete(`${apiStore.host}waInstance${apiStore.idInstanse}/deleteNotification/${apiStore.token}/${i}`)
+    //             .then(response => {
+    //                 console.log(response)
+    //             })
+    //             .catch(e => console.log(e))
+    //     }
+    // }
 
     return (
         <div className='type-bar'>
@@ -28,7 +41,9 @@ const TypeBar = () => {
                         d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
                 </svg>
             </button>
-               <input type="text" placeholder='Type a message' onChange={handleChange} value={message} onKeyDown={handleKeyDown}/>
+
+            <input type="text" placeholder='Type a message' onChange={handleChange} value={message}
+                   onKeyDown={handleKeyDown}/>
         </div>
     );
 };

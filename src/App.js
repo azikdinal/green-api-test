@@ -1,7 +1,8 @@
 import './style.scss'
 import Window from "./components/Window";
-import Modal from "./components/modal/Modal";
+import MainModal from "./components/modal/mainModal";
 import React, {useState} from "react";
+import NewUserModal from "./components/modal/newUserModal";
 
 
 function App() {
@@ -10,9 +11,9 @@ function App() {
 
     return (
         <div className="App">
-
             <Window/>
-            <Modal/>
+            <MainModal/>
+            <NewUserModal/>
         </div>
     );
 }

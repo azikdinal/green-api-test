@@ -3,18 +3,25 @@ import axios from "axios";
 
 class ApiStore {
     id = 0
-    chatId = "79887206320@c.us"
+    chatId = ""
     messages = []
-    receiptId = 0
+    receiptId = null
     host = 'https://api.green-api.com/'
-    idInstanse = 1101822336
-    token = '95247822b8fe41d8b937cd71d959334c6719ee252dae4b4bac'
+    idInstanse = null
+    token = ''
     constructor() {
         makeAutoObservable(this)
     }
 
-    addMessage(newMessage) {
-        this.messages = [...this.messages, {id: this.id + 1, text: newMessage}]
+    setIdInstance(idInstanse){
+        this.idInstanse = idInstanse
+    }
+    setToken(token){
+        this.token = token
+    }
+
+    addMessage(newMessage, isUser) {
+        this.messages = [...this.messages, {is: isUser, text: newMessage}]
     }
 
     setChatId(chatId){
@@ -27,6 +34,7 @@ class ApiStore {
                 "chatId": this.chatId,
                 "message": message
             })
+            console.log(this.idInstanse)
             this.addMessage(message)
         }
         catch (e){
@@ -37,7 +45,7 @@ class ApiStore {
     async recieveMessage(){
             await axios.get(`${this.host}waInstance${this.idInstanse}/receiveNotification/${this.token}`)
                 .then(response => {
-                    this.addMessage(response.data.body.messageData.extendedTextMessageData.text)
+                    this.addMessage(response.data.body.messageData.extendedTextMessageData.text, false)
                     this.receiptId = response.data.receiptId
                     console.log(response)
                 })

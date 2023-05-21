@@ -1,7 +1,7 @@
 import React from 'react';
 import LeftBar from "./LeftBar";
 import RightBar from "./RightBar";
-import Modal from "./modal/Modal";
+import MainModal from "./modal/mainModal";
 
 const Window = () => {
     return (

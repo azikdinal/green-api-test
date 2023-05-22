@@ -37,7 +37,7 @@ class ApiStore {
                 "message": message
             })
             console.log(this.idInstanse)
-            this.addMessage(message)
+            this.addMessage(message, true)
             await this.deleteFourNotif()
         } catch (e) {
             console.log(e)

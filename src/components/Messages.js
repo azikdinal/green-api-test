@@ -18,7 +18,7 @@ const Messages = observer(() => {
             <div className='messages' ref={typeBarRef}>
                 <Date/>
                 {messages.map(message =>
-                    <Message message={message.text} isUser={message.is}/>
+                    <Message message={message.text} isUser={message.is_user}/>
                 )}
             </div>
         );

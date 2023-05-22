@@ -17,20 +17,7 @@ const TypeBar = () => {
         }
     };
 
-    const deleteNotif = async () =>{
-        for(let i = 121; i < 200; i++){
-            await axios.get(`${apiStore.host}waInstance${apiStore.idInstanse}/receiveNotification/${apiStore.token}`)
-                .then(response => {
-                    console.log(response)
-                })
-                .catch(e => console.log(e))
-            await axios.delete(`${apiStore.host}waInstance${apiStore.idInstanse}/deleteNotification/${apiStore.token}/${i}`)
-                .then(response => {
-                    console.log(response)
-                })
-                .catch(e => console.log(e))
-        }
-    }
+
 
     return (
         <div className='type-bar'>

@@ -2,7 +2,7 @@ import './style.scss'
 import Window from "./components/Window";
 import MainModal from "./components/modal/mainModal";
 import React, {useState} from "react";
-import NewUserModal from "./components/modal/newUserModal";
+import NewChatModal from "./components/modal/newChatModal";
 import ApiStore from "./store/ChatStore";
 
 
@@ -13,8 +13,8 @@ function App() {
         <div className="App">
             <Window/>
             <MainModal/>
-            <NewUserModal/>
-            <button onClick={() => ApiStore.recieveMessage()}>click</button>
+            <NewChatModal/>
+            <button onClick={() => ApiStore.showMessage(true)}>click</button>
             <button onClick={() => ApiStore.deleteNotification()}>DELETE</button>
         </div>
     );

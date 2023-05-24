@@ -1,26 +1,26 @@
 import {makeAutoObservable} from "mobx";
 import axios from "axios";
+import {getMessage} from "@testing-library/jest-dom/dist/utils";
 
 class ChatStore {
-    id = 0
-    chatId = ""
     messages = []
-    receiptId = null // notification id
     host = 'https://api.green-api.com/waInstance'
-    idInstance = ''
-    token = ''
 
     constructor() {
         makeAutoObservable(this)
     }
 
-    async addMessage(newMessage, isUser) {
-        this.messages = [...this.messages, {is_user: isUser, text: newMessage}]
+    addMessage(message, isUser) {
+        this.messages = [...this.messages, {is_user: isUser, text: message}]
     }
 
     setData(idInstance, token) {
         this.idInstance = idInstance
         this.token = token
+    }
+
+    setChatId(chatId) {
+        this.chatId = chatId + `@c.us`
     }
 
     async getNotification() {
@@ -80,38 +80,65 @@ class ChatStore {
         }
     }
 
-    async sendMessage(chatId, message) {
+    async sendMessage(message) {
         let url = this.host + this.idInstance + `/SendMessage/` + this.token
         try {
             await axios.post(url, {
-                "chatId": `${chatId}@c.us`,
+                "chatId": this.chatId,
                 "message": message
             })
+            return this.showMessage(message, true)
         } catch (e) {
             console.log(e)
         }
     }
 
-    async recieveMessage() {
+    async isMessageRecieved() {
         let typeWebhook = ''
-        let message = ''
         try {
-            await this.getNotification().then(response => {
-                message = response.body.messageData.extendedTextMessageData.text
-                typeWebhook = esponse.body.typeWebhook
+            await this.getNotification()
+                .then(response => {
+                    typeWebhook = response.body.typeWebhook
+                })
+            if (typeWebhook === "incomingMessageReceived") {
+                return true
+            } else {
+                return false
+            }
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    async getMessage(message) {
+        await this.getNotification()
+            .then(response => {
+                message = response.data.body.messageData.extendedTextMessageData.text
             })
-            typeWebhook === "incomingMessageReceived"
+            .catch(e => console.log(e))
+        return message
+    }
+
+    async getRecievedMessage(message) {
+        try {
+            await this.isMessageRecieved()
                 ?
-                message = notification.messageData.extendedTextMessageData.text
+                message = await this.getMessage(message)
                 :
-                console.log("NO MESSAGE")
+                console.log("THERE IS NOT RECIEVED MESSAGE!")
             return message
         } catch (e) {
             console.log(e)
         }
     }
 
-    async showMessage(){
+    async showMessage(message, isUser) {
+        try {
+            message = await this.getRecievedMessage(message)
+            return this.addMessage(message, isUser)
+        } catch (e) {
+            return console.log(e)
+        }
 
     }
 

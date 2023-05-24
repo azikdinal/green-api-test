@@ -13,11 +13,9 @@ const TypeBar = () => {
     // Send message func
     const handleKeyDown = async (event) => {
         if (event.key === 'Enter') {
-            await apiStore.sendMessage(message, true)
+            return await apiStore.sendMessage(message)
         }
     };
-
-
 
     return (
         <div className='type-bar'>

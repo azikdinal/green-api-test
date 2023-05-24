@@ -3,7 +3,7 @@ import {observer} from "mobx-react-lite";
 import NewUserModalStore from "../../store/NewUserModalStore";
 import ApiStore from "../../store/ChatStore";
 
-const NewUserModal = observer(() => {
+const NewChatModal = observer(() => {
 
         const [number, setNumber] = useState('')
 
@@ -33,4 +33,4 @@ const NewUserModal = observer(() => {
     }
 )
 
-export default NewUserModal;
+export default NewChatModal;

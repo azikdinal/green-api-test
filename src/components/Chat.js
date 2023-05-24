@@ -1,7 +1,7 @@
 import React from 'react';
 import image from '../assets/image.jpg'
 import {observer} from "mobx-react-lite";
-import ApiStore from "../store/ApiStore";
+import ApiStore from "../store/ChatStore";
 
 const Chat = observer(() => {
     return (

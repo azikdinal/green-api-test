@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import apiStore from '../store/ApiStore'
+import apiStore from '../store/ChatStore'
 import ModalStore from "../store/ModalStore";
 import axios from "axios";
 

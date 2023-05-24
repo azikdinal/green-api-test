@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {observer} from "mobx-react-lite";
 import ModalStore from "../../store/ModalStore";
-import ApiStore from "../../store/ApiStore";
+import ApiStore from "../../store/ChatStore";
 
 const MainModal = observer(() => {
         const [idInstance, setIdInstance] = useState(null)

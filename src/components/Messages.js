@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Date from "./Date";
 import Message from "./Message";
-import apiStore from '../store/ApiStore'
+import apiStore from '../store/ChatStore'
 import {observer} from 'mobx-react-lite'
 
 const Messages = observer(() => {

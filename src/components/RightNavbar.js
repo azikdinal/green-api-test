@@ -1,5 +1,5 @@
 import React from 'react';
-import ApiStore from "../store/ApiStore";
+import ApiStore from "../store/ChatStore";
 import {observer} from "mobx-react-lite";
 
 const RightNavbar = observer(() => {

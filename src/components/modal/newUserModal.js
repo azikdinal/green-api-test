@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {observer} from "mobx-react-lite";
 import NewUserModalStore from "../../store/NewUserModalStore";
-import ApiStore from "../../store/ApiStore";
+import ApiStore from "../../store/ChatStore";
 
 const NewUserModal = observer(() => {
 

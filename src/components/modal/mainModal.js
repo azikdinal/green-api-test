@@ -19,10 +19,8 @@ const MainModal = observer(() => {
 
         const sendData = (idInstance, token) => {
             if (idInstance && token) {
-                ApiStore.setIdInstance(idInstance)
-                ApiStore.setToken(token)
+                ApiStore.setData(idInstance, token)
                 ModalStore.switch()
-                console.log(ApiStore.idInstanse)
             } else {
                 setErrorMessage(true)
             }

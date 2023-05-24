@@ -8,13 +8,14 @@ import ApiStore from "./store/ChatStore";
 
 function App() {
 
-
+    // setInterval(() => ApiStore.deleteNotification(), 5000)
     return (
         <div className="App">
-            {/*<Window/>*/}
-            {/*<MainModal/>*/}
-            {/*<NewUserModal/>*/}
-            <button onClick={() => ApiStore.getIdInstance()}>click</button>
+            <Window/>
+            <MainModal/>
+            <NewUserModal/>
+            <button onClick={() => ApiStore.recieveMessage()}>click</button>
+            <button onClick={() => ApiStore.deleteNotification()}>DELETE</button>
         </div>
     );
 }

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 import apiStore from '../store/ChatStore'
 import ModalStore from "../store/ModalStore";
-import axios from "axios";
 
 const TypeBar = () => {
     const [message, setMessage] = useState('')
@@ -13,6 +12,7 @@ const TypeBar = () => {
     // Send message func
     const handleKeyDown = async (event) => {
         if (event.key === 'Enter') {
+
             return await apiStore.sendMessage(message)
         }
     };

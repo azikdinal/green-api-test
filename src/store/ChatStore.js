@@ -10,9 +10,6 @@ class ChatStore {
         makeAutoObservable(this)
     }
 
-    addMessage(message, isUser) {
-        this.messages = [...this.messages, {is_user: isUser, text: message}]
-    }
 
     setData(idInstance, token) {
         this.idInstance = idInstance
@@ -93,6 +90,19 @@ class ChatStore {
         }
     }
 
+    async recieveMessage() {
+        let url = this.host + this.idInstance + `/SendMessage/` + this.token
+
+        let message = ''
+        try {
+            message = this.getRecievedMessage()
+            await this.showMessage(message, false)
+            console.log(message)
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     async isMessageRecieved() {
         let typeWebhook = ''
         try {
@@ -119,7 +129,9 @@ class ChatStore {
         return message
     }
 
-    async getRecievedMessage(message) {
+    async getRecievedMessage() {
+        let message = ''
+
         try {
             await this.isMessageRecieved()
                 ?
@@ -134,12 +146,10 @@ class ChatStore {
 
     async showMessage(message, isUser) {
         try {
-            message = await this.getRecievedMessage(message)
-            return this.addMessage(message, isUser)
+            return this.messages = [...this.messages, {is_user: isUser, text: message}]
         } catch (e) {
             return console.log(e)
         }
-
     }
 
 }

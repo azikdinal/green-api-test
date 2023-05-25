@@ -15,7 +15,8 @@ const NewChatModal = observer(() => {
         const addNumber = number => {
             ApiStore.setChatId(number)
             NewUserModalStore.switch()
-            console.log(ApiStore.chatId)
+            // ApiStore.deleteAllNotifications()
+            // return setInterval(() => ApiStore.deleteNotification(), 5000)
         }
 
         return (
